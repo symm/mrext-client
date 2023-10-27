@@ -34,3 +34,6 @@ jobs:
           name: latest
           tag_name: latest
           files: mrext-client-latest.tar.gz
+
+permissions:
+  contents: write

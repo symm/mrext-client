@@ -32,6 +32,7 @@ jobs:
         #if: startsWith(github.ref, 'refs/tags/')
         with:
           name: latest
+          body: Latest code build from main branch
           tag_name: latest
           files: mrext-client-latest.tar.gz
 

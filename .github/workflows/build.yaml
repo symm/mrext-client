@@ -26,11 +26,4 @@ jobs:
       - name: Production build
         run: npx vite build
       - name: Create release tarball
-        uses: a7ul/tar-action@v1.1.0
-        id: compress
-        with:
-          command: c
-          cwd: ./build
-          files: |
-            *
-          outPath: mrext-client.tar.gz
+        run: tar jcvf mrext-client-latest.tar.gz -C ./build .

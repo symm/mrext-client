@@ -25,7 +25,7 @@ jobs:
         run: npm install
       - name: Production build
         run: npx vite build
-      - name: Create release tarball
+      - name: Package release tarball
         run: tar jcvf mrext-client-latest.tar.gz -C ./build .
       - name: Create release
         uses: softprops/action-gh-release@v1

@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+    tags: *
   workflow_dispatch: ~
 
 concurrency:
@@ -25,7 +26,9 @@ jobs:
         run: npm install
       - name: Production build
         run: npx vite build
+
       - name: Package release tarball
+        if: startsWith(github.ref, 'refs/tags/')
         run: tar jcvf mrext-client-latest.tar.gz -C ./build .
       - name: Create release
         uses: softprops/action-gh-release@v1

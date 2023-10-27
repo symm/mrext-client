@@ -30,12 +30,13 @@ jobs:
 
       - name: Package release tarball
         if: startsWith(github.ref, 'refs/tags/')
-        run: tar jcvf mrext-client-latest.tar.gz -C ./build .
+        run: tar jcvf mrext-client.tar.gz -C ./build .
       - name: Create release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: mrext-client.tar.gz
+          fail_on_unmatched_files: true
 
 permissions:
   contents: write
